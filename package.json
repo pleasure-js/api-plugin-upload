@@ -28,7 +28,7 @@
     "fs-extra": "^8.1.0",
     "koa-body": "^4.1.0",
     "lodash": "^4.17.15",
-    "pleasure-api": "keepwondering/pleasure-api",
+    "pleasure-api": "keepwondering/pleasure-api#v1-beta",
     "sha1": "^1.1.1"
   }
 }
