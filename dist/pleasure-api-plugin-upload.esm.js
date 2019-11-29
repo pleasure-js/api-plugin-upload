@@ -236,7 +236,7 @@ const PleasureApiPluginUpload = {
       const { sessionId } = user || {};
 
       // todo: check file extension
-      console.log({ config });
+      // console.log({ config })
 
       /**
        * @typedef {Object} UploadRequest
