@@ -1,6 +1,6 @@
 /*!
- * pleasure-api-plugin-upload v1.0.0
- * (c) 2019-2019 Martin Rafael <tin@devtin.io>
+ * @pleasure-js/api-plugin-upload v1.0.0
+ * (c) 2019-2020 Martin Rafael <tin@devtin.io>
  * MIT
  */
 import { getMongoConnection } from '@pleasure-js/api';

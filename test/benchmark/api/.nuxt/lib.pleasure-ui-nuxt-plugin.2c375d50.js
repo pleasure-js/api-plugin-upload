@@ -1,4 +1,4 @@
-import * as pleasure from 'pleasure-ui-vue'
+import * as pleasure from '@pleasure-js/ui-vue'
 import Vue from 'vue'
 
 export default function ({ app, store }) {

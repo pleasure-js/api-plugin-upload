@@ -37,7 +37,7 @@ export default [
     input: 'src/index.js',
     output: [
       {
-        file: `dist/${name}.js`,
+        file: `dist/api-plugin-upload.js`,
         format: 'cjs',
         banner
       },
@@ -48,7 +48,7 @@ export default [
     input: 'src/index.js',
     output: [
       {
-        file: `dist/${name}.esm.js`,
+        file: `dist/api-plugin-upload.esm.js`,
         format: 'esm',
         banner
       }

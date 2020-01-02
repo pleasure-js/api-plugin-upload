@@ -1,15 +1,21 @@
 /*!
- * pleasure-api-plugin-upload v1.0.0
- * (c) 2019-2019 Martin Rafael <tin@devtin.io>
+ * @pleasure-js/api-plugin-upload v1.0.0
+ * (c) 2019-2020 Martin Rafael <tin@devtin.io>
  * MIT
  */
-import { getMongoConnection } from '@pleasure-js/api';
-import { getConfig, findRoot } from '@pleasure-js/utils';
-import sha1 from 'sha1';
-import koaBody from 'koa-body';
-import pick from 'lodash/pick';
-import { mkdirpSync, remove, move } from 'fs-extra';
-import path from 'path';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var api = require('@pleasure-js/api');
+var utils = require('@pleasure-js/utils');
+var sha1 = _interopDefault(require('sha1'));
+var koaBody = _interopDefault(require('koa-body'));
+var pick = _interopDefault(require('lodash/pick'));
+var fsExtra = require('fs-extra');
+var path = _interopDefault(require('path'));
 
 function FileUploadSchema ({ Schema, ExtendSchema = {} }) {
   return new Schema(Object.assign(ExtendSchema, {
@@ -117,7 +123,7 @@ function setFileUpload ({ category, destination, fieldName = 'file', onUpload, o
     return
   }
 
-  mkdirpSync(fromStoragePath(destination));
+  fsExtra.mkdirpSync(fromStoragePath(destination));
 
   if (categories.categoryExists(category)) {
     throw new Error(`Category ${ category } already exists.`)
@@ -172,14 +178,14 @@ const PleasureApiPluginUpload = {
    * @param Schema - Mongoose Schema class
    */
   prepare ({ router, config, mongoose: { Schema } }) {
-    const { debug } = getConfig();
+    const { debug } = utils.getConfig();
     instanceConfig = config;
-    const storagePath = findRoot(config.storagePath);
+    const storagePath = utils.findRoot(config.storagePath);
     fromStoragePath = (...paths) => {
       return path.join(storagePath, ...paths)
     };
 
-    mkdirpSync(storagePath);
+    fsExtra.mkdirpSync(storagePath);
 
     const koaUpload = koaBody(config.koaBody);
 
@@ -193,7 +199,7 @@ const PleasureApiPluginUpload = {
     let mongoose;
     let UploadModel;
 
-    getMongoConnection()
+    api.getMongoConnection()
       .then(m => {
         mongoose = m;
 
@@ -225,7 +231,7 @@ const PleasureApiPluginUpload = {
 
       const clean = () => {
         // todo: delete file
-        return remove(file.path)
+        return fsExtra.remove(file.path)
       };
 
       const cleanAndLeave = async () => {
@@ -281,7 +287,7 @@ const PleasureApiPluginUpload = {
         category: theCategory.category,
         filename: file.name,
         originalUploadedFile: pick(file, ['domain', 'size', 'path', 'name', 'type', 'lastModifiedDate']),
-        destinationFilename: path.relative(findRoot(), destinationFilename),
+        destinationFilename: path.relative(utils.findRoot(), destinationFilename),
         remoteIp: ip,
         hash: file.hash
       };
@@ -296,11 +302,12 @@ const PleasureApiPluginUpload = {
       }
 
       // todo: move file from location
-      await move(file.path, destinationFilename, { overwrite: true });
+      await fsExtra.move(file.path, destinationFilename, { overwrite: true });
 
       ctx.body = { data: uploadFile.toObject() };
     });
   }
 };
 
-export { FileUploadSchema, PleasureApiPluginUpload };
+exports.FileUploadSchema = FileUploadSchema;
+exports.PleasureApiPluginUpload = PleasureApiPluginUpload;

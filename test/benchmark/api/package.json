@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "formidable": "^1.2.1",
-    "pleasure-cli": "keepwondering/pleasure-cli#v1-beta"
+    "@pleasure-js/cli": "file:/Users/tin/projects/pleasure-suite-builder/packages/cli"
   }
 }

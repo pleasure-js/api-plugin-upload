@@ -1,5 +1,5 @@
-import { getMongoConnection } from 'pleasure-api'
-import { findRoot, getConfig } from 'pleasure-utils'
+import { getMongoConnection } from '@pleasure-js/api'
+import { findRoot, getConfig } from '@pleasure-js/utils'
 import { FileUploadSchema } from 'lib/file-upload-schema.js'
 import { generateFileName } from 'lib/generate-filename.js'
 import koaBody from 'koa-body'

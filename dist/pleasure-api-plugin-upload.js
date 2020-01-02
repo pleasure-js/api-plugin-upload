@@ -9,8 +9,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var pleasureApi = require('pleasure-api');
-var pleasureUtils = require('pleasure-utils');
+var pleasureApi = require('@pleasure-js/api');
+var pleasureUtils = require('@pleasure-js/utils');
 var sha1 = _interopDefault(require('sha1'));
 var koaBody = _interopDefault(require('koa-body'));
 var pick = _interopDefault(require('lodash/pick'));

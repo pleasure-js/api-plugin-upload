@@ -1,14 +1,14 @@
 {
-  "name": "pleasure-api-plugin-upload",
+  "name": "@pleasure-js/api-plugin-upload",
   "author": "Martin Rafael <tin@devtin.io>",
   "version": "1.0.0",
-  "main": "dist/pleasure-api-plugin-upload.js",
-  "module": "dist/pleasure-api-plugin-upload.esm.js",
+  "main": "dist/api-plugin-upload.js",
+  "module": "dist/api-plugin-upload.esm.js",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "build:live": "nodemon -w src --exec yarn build",
-    "build:docs": "jsdoc2md --template README.hbs --files dist/pleasure-api-plugin-upload.js > README.md",
+    "build:docs": "jsdoc2md --template README.hbs --files dist/api-plugin-upload.js > README.md",
     "test": "ava --serial --verbose"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "fs-extra": "^8.1.0",
     "koa-body": "^4.1.0",
     "lodash": "^4.17.15",
-    "pleasure-api": "keepwondering/pleasure-api#v1-beta",
+    "@pleasure-js/api": "file:/Users/tin/projects/pleasure-suite-builder/packages/api",
     "sha1": "^1.1.1"
   }
 }
