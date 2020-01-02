@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "formidable": "^1.2.1",
-    "@pleasure-js/cli": "file:/Users/tin/projects/pleasure-suite-builder/packages/cli"
+    "@pleasure-js/cli": "git@github.com:pleasure-js/cli.git#v1-beta"
   }
 }
