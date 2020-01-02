@@ -28,7 +28,7 @@
     "fs-extra": "^8.1.0",
     "koa-body": "^4.1.0",
     "lodash": "^4.17.15",
-    "@pleasure-js/api": "git@github.com:pleasure-js/api.git#v1-beta",
+    "@pleasure-js/api": "git+ssh://git@github.com:pleasure-js/api.git#v1-beta",
     "sha1": "^1.1.1"
   }
 }
